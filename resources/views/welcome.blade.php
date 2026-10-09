@@ -1,5 +1,5 @@
 @php
-    $consultorio = 'Consultorio Dental Dra. Nombre Apellido';
+    $consultorio = 'Consultorio Dental Dra. Rocio Pérez';
     $whatsapp = '525512345678'; // lada + número, sin + ni espacios
     $mensaje = urlencode('Hola, me gustaría agendar una cita.');
     $servicios = [
@@ -22,7 +22,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ $consultorio }} | Cuida tu sonrisa</title>
-    <meta name="description" content="Limpieza, resinas, blanqueamiento, ortodoncia y más. Agenda tu cita con la Dra. Nombre Apellido.">
+    <meta name="description" content="Limpieza, resinas, blanqueamiento, ortodoncia y más. Agenda tu cita con la Dra. Rocio Pérez.">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-white font-sans text-slate-800 antialiased">
@@ -66,7 +66,7 @@
                 </div>
             </div>
             <div class="flex h-72 items-center justify-center rounded-3xl bg-teal-100 text-8xl md:h-96">
-                {{-- Reemplaza por una foto real: <img src="{{ asset('img/doctora.jpg') }}" class="h-full w-full rounded-3xl object-cover" alt="Dra. Nombre Apellido"> --}}
+                {{-- Reemplaza por una foto real: <img src="{{ asset('img/doctora.jpg') }}" class="h-full w-full rounded-3xl object-cover" alt="Dra. Rocio Perez"> --}}
                 😁
             </div>
         </div>

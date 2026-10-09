@@ -13,7 +13,16 @@ return new class extends Migration
     {
         Schema::create('citas', function (Blueprint $table) {
             $table->id();
+            $table->string('paciente');
+            $table->string('telefono', 20);
+            $table->string('email')->nullable();
+            $table->dateTime('fecha_hora');
+            $table->string('servicio');
+            $table->string('estado')->default('pendiente');
+            $table->text('notas')->nullable();
             $table->timestamps();
+
+            $table->index(['fecha_hora', 'estado']);
         });
     }
 
