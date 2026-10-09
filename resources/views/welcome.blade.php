@@ -66,8 +66,8 @@
                 </div>
             </div>
             <div class="flex h-72 items-center justify-center rounded-3xl bg-teal-100 text-8xl md:h-96">
-                {{-- Reemplaza por una foto real: <img src="{{ asset('img/doctora.jpg') }}" class="h-full w-full rounded-3xl object-cover" alt="Dra. Rocio Perez"> --}}
-                😁
+                <img src="{{ asset('img/doctora.jpg') }}" class="h-full w-full rounded-3xl object-cover" alt="Dra. Rocio Perez"> 
+                
             </div>
         </div>
     </section>
