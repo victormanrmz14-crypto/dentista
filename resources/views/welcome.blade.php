@@ -30,7 +30,7 @@
     {{-- Navbar --}}
     <header class="sticky top-0 z-50 border-b border-slate-100 bg-white/90 backdrop-blur">
         <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-            <a href="#inicio" class="text-lg font-bold text-teal-700">🦷 Dra. Nombre Apellido</a>
+            <a href="#inicio" class="text-lg font-bold text-teal-700">🦷 Dra. Rocio Pérez</a>
             <div class="hidden gap-6 text-sm font-medium md:flex">
                 <a href="#servicios" class="hover:text-teal-700">Servicios</a>
                 <a href="#nosotros" class="hover:text-teal-700">Por qué elegirme</a>
@@ -124,14 +124,13 @@
         <h2 class="text-center text-3xl font-bold">Contacto y ubicación</h2>
         <div class="mt-12 grid gap-8 md:grid-cols-2">
             <ul class="space-y-4 text-slate-700">
-                <li><strong>📍 Dirección:</strong> Calle Ejemplo #123, Col. Centro, Texcoco, Edo. Méx.</li>
+                <li><strong>📍 Dirección:</strong> Anexo "A", Esquina Teneria, Calle Francisco Sarabia, La Trinidad, 56130 Texcoco de Mora, Méx.</li>
                 <li><strong>📞 Teléfono:</strong> 55 1234 5678</li>
                 <li><strong>✉️ Correo:</strong> contacto@consultorio.com</li>
                 <li><strong>🕘 Horario:</strong> Lunes a viernes 9:00–19:00 · Sábados 9:00–14:00</li>
             </ul>
             <div class="overflow-hidden rounded-2xl border border-slate-100">
-                {{-- Pega aquí el iframe de Google Maps (Compartir > Insertar mapa) --}}
-                <div class="flex h-64 items-center justify-center bg-slate-100 text-slate-400">Mapa de Google Maps</div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.2624074774294!2d-99.11604960321044!3d19.444249999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f950eaaaaaab%3A0x27a5a2362f02faf6!2sIdeal%20Dental%20(Dental%20Tourism)!5e0!3m2!1ses-419!2smx!4v1791581410734!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
             </div>
         </div>
     </section>
