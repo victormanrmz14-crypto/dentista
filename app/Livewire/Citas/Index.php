@@ -22,12 +22,19 @@ class Index extends Component
     public string $filtroEstado = '';
 
     public ?int $citaId = null;
+
     public string $paciente = '';
+
     public string $telefono = '';
+
     public string $email = '';
+
     public string $fecha_hora = '';
+
     public string $servicio = '';
+
     public string $estado = 'pendiente';
+
     public string $notas = '';
 
     public ?int $citaAEliminar = null;
@@ -46,7 +53,7 @@ class Index extends Component
     {
         return [
             'paciente' => ['required', 'string', 'max:255'],
-            'telefono' => ['required', 'string', 'max:20'],
+            'telefono' => ['required', 'string', 'regex:/^[0-9]+$/', 'max:10'],
             'email' => ['nullable', 'email', 'max:255'],
             'fecha_hora' => array_filter([
                 'required',
@@ -65,6 +72,8 @@ class Index extends Component
         return [
             'paciente.required' => 'El nombre del paciente es obligatorio.',
             'telefono.required' => 'El teléfono es obligatorio.',
+            'telefono.regex' => 'El teléfono solo debe contener números.',
+            'telefono.max' => 'El teléfono no puede tener más de 10 dígitos.',
             'fecha_hora.required' => 'Selecciona fecha y hora.',
             'fecha_hora.after' => 'La fecha debe ser posterior a este momento.',
             'servicio.required' => 'Selecciona un servicio.',
@@ -117,6 +126,7 @@ class Index extends Component
 
         if ($ocupado) {
             $this->addError('fecha_hora', 'Ya existe una cita en ese horario.');
+
             return;
         }
 
@@ -181,7 +191,7 @@ class Index extends Component
             ->when($this->buscar, function ($q) {
                 $q->where(function ($q) {
                     $q->where('paciente', 'like', "%{$this->buscar}%")
-                      ->orWhere('telefono', 'like', "%{$this->buscar}%");
+                        ->orWhere('telefono', 'like', "%{$this->buscar}%");
                 });
             })
             ->when($this->filtroEstado, fn ($q) => $q->where('estado', $this->filtroEstado))

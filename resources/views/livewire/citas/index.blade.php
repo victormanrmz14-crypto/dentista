@@ -211,7 +211,7 @@
                 <legend class="text-xs font-semibold uppercase tracking-wider text-teal-600">Datos del paciente</legend>
                 <flux:input label="Nombre completo" icon="user" wire:model="paciente" placeholder="Ej. Ana López" required />
                 <div class="grid gap-4 sm:grid-cols-2">
-                    <flux:input label="Teléfono" icon="phone" type="tel" wire:model="telefono" placeholder="55 1234 5678" required />
+                    <flux:input label="Teléfono" icon="phone" type="tel" inputmode="numeric" pattern="[0-9]+" maxlength="10" wire:model="telefono" placeholder="5512345678" required />
                     <flux:input label="Correo (opcional)" icon="envelope" type="email" wire:model="email" placeholder="correo@ejemplo.com" />
                 </div>
             </fieldset>
