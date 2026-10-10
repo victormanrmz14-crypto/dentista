@@ -12,4 +12,14 @@
 @fonts
 
 @vite(['resources/css/app.css', 'resources/js/app.js'])
-@fluxAppearance
+
+{{-- Forzar siempre el tema claro (sin selector de apariencia) --}}
+<style>
+    :root {
+        color-scheme: light;
+    }
+</style>
+<script>
+    document.documentElement.classList.remove('dark');
+    window.localStorage.setItem('flux.appearance', 'light');
+</script>

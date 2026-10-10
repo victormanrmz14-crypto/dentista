@@ -188,9 +188,35 @@ class Index extends Component
             ->orderBy('fecha_hora')
             ->paginate(10);
 
+        $ahora = now();
+        $inicioHoy = $ahora->copy()->startOfDay();
+        $finHoy = $ahora->copy()->endOfDay();
+
+        $citasHoy = Cita::query()
+            ->whereBetween('fecha_hora', [$inicioHoy, $finHoy])
+            ->where('estado', '!=', EstadoCita::Cancelada->value)
+            ->count();
+
+        $pendientes = Cita::query()
+            ->where('estado', EstadoCita::Pendiente->value)
+            ->count();
+
+        $completadas = Cita::query()
+            ->where('estado', EstadoCita::Completada->value)
+            ->count();
+
+        $proximas = Cita::query()
+            ->where('fecha_hora', '>=', $ahora)
+            ->whereIn('estado', [EstadoCita::Pendiente->value, EstadoCita::Confirmada->value])
+            ->count();
+
         return view('livewire.citas.index', [
             'citas' => $citas,
             'estados' => EstadoCita::cases(),
+            'citasHoy' => $citasHoy,
+            'pendientes' => $pendientes,
+            'completadas' => $completadas,
+            'proximas' => $proximas,
         ]);
     }
 }
