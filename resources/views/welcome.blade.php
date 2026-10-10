@@ -36,10 +36,16 @@
                 <a href="#nosotros" class="hover:text-teal-700">Por qué elegirme</a>
                 <a href="#contacto" class="hover:text-teal-700">Contacto</a>
             </div>
-            <a href="https://wa.me/{{ $whatsapp }}?text={{ $mensaje }}" target="_blank" rel="noopener"
-               class="rounded-full bg-teal-600 px-4 py-2 text-sm font-semibold text-white hover:bg-teal-700">
-                Agendar cita
-            </a>
+            <div class="flex items-center gap-2">
+                <a href="https://wa.me/{{ $whatsapp }}?text={{ $mensaje }}" target="_blank" rel="noopener"
+                   class="rounded-full bg-teal-600 px-4 py-2 text-sm font-semibold text-white hover:bg-teal-700">
+                    Agendar cita
+                </a>
+                <a href="{{ auth()->check() ? route('citas.index') : route('login') }}"
+                   class="rounded-full border border-teal-600 px-4 py-2 text-sm font-semibold text-teal-700 hover:bg-teal-50">
+                    Consultorio
+                </a>
+            </div>
         </nav>
     </header>
 
