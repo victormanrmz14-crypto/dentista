@@ -34,57 +34,6 @@ Para desarrollo, levanta todos los servicios (servidor, cola, Vite) con:
 composer run dev
 ```
 
-## Seeders
-
-Los seeders son clases que insertan datos iniciales o de prueba en la base de datos. Se guardan en `database/seeders/`.
-
-### Crear un seeder
-
-```bash
-php artisan make:seeder NombreDelSeeder
-```
-
-Esto genera el archivo `database/seeders/NombreDelSeeder.php`. Dentro del método `run()` debes colocar la lógica de inserción. Por ejemplo, usando el modelo y su factory:
-
-```php
-<?php
-
-namespace Database\Seeders;
-
-use App\Models\User;
-use Illuminate\Database\Seeder;
-
-class NombreDelSeeder extends Seeder
-{
-    public function run(): void
-    {
-        User::factory(10)->create();
-    }
-}
-```
-
-Para datos que deben existir siempre, usa `updateOrCreate()` y así el seeder puede ejecutarse varias veces sin duplicar registros:
-
-```php
-User::updateOrCreate(
-    ['email' => 'correo@consultorio.com'],
-    ['name' => 'Nombre', 'password' => 'password'],
-);
-```
-
-### Registrar el seeder
-
-Los seeders individuales no se ejecutan solos: hay que registrarlos en `database/seeders/DatabaseSeeder.php` mediante el método `call()`.
-
-```php
-public function run(): void
-{
-    $this->call([
-        DentistaUserSeeder::class,
-    ]);
-}
-```
-
 ### Ejecutar los seeders
 
 ```bash
@@ -108,7 +57,6 @@ El seeder `DentistaUserSeeder` crea la cuenta de acceso de la doctora:
 | Correo | `rocio.perez@consultorio.com` |
 | Contraseña | `password` |
 
-> Cambia la contraseña después del primer inicio de sesión.
 
 ## Pruebas
 
